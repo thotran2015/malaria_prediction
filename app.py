@@ -33,7 +33,8 @@ def save_file():
       f.save(file_path)
       os.rename(file_path, './static/output.png')
       #f.save('./static/'+secure_filename(f.filename))
-      return image.load_img('./static/output.png', target_size = (64,64))
+      cell = image.load_img('./static/output.png', target_size = (64,64))
+      return 'hi'
    
 #predict_cell('./static/'+secure_filename(f.filename), loaded_model)
 
