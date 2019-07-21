@@ -35,7 +35,7 @@ def load_model():
     
 
 def predict_cell(img_path, loaded_model):
-    cell = image.load_img('./static/'+img_path, target_size = (64,64)
+    cell = image.load_img(img_path, target_size = (64,64))
     return cell
     #t = np.array([image.img_to_array(cell)/255.0])
     #if np.argmax(loaded_model.predict(t), axis = -1) == 0:
