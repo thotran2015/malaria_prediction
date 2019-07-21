@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 #from flask_uploads import UploadSet, configure_uploads,IMAGES
 from werkzeug import secure_filename
 from predict import predict_cell
+from predict import load_model
 
 app = Flask(__name__)
 
