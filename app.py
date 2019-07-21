@@ -31,6 +31,7 @@ def save_file():
       filename = secure_filename(f.filename)
       file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
       f.save(file_path)
+      os.rename(file_path, './static/output.png')
       #f.save('./static/'+secure_filename(f.filename))
       return file_path
    
