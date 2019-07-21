@@ -20,7 +20,7 @@ def upload_file():
 def save_file():
    if request.method == 'POST':
       f = request.files['file']
-      return secure_filename(f.filename)
+      return predict_cell(secure_filename(f.filename))
 	
 ##@app.route('/uploader', methods = ['GET', 'POST'])
 ##def save_file():
