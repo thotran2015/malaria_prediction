@@ -1,7 +1,7 @@
 import pickle
 from keras.models import Model
 from keras.models import model_from_json
-from keras.preprocessing.image import ImageDataGenerator
+#from keras.preprocessing.image import ImageDataGenerator
 from keras.preprocessing import image
 import numpy as np
 import tensorflow as tf
@@ -11,17 +11,17 @@ NUM_EPOCHS = 50
 INIT_LR = 1e-1
 BS = 64
 
-def transform_img(img):
-    # initialize the validation (and testing) data augmentation object
-    valAug = ImageDataGenerator(rescale=1 / 255.0)
-    testGen = valAug.flow_from_directory(
-	'img',
-	class_mode="categorical",
-	target_size=(64, 64),
-	color_mode="rgb",
-	shuffle=False,
-	batch_size=BS)
-    return testGen
+##def transform_img(img):
+##    # initialize the validation (and testing) data augmentation object
+##    valAug = ImageDataGenerator(rescale=1 / 255.0)
+##    testGen = valAug.flow_from_directory(
+##	'img',
+##	class_mode="categorical",
+##	target_size=(64, 64),
+##	color_mode="rgb",
+##	shuffle=False,
+##	batch_size=BS)
+##    return testGen
 
 
 def predict_cell(img_path):
