@@ -19,6 +19,7 @@ def upload_file():
 	
 @app.route('/uploader', methods = ['GET', 'POST'])
 def save_file():
+   print('hi')
    if request.method == 'POST':
       f = request.files['file']
       #print(secure_filename(f.filename))
@@ -30,4 +31,5 @@ def save_file():
       return render_template('result.html', img_path = img_path, diagnosis = diagnosis)
 		
 if __name__ == '__main__':
+   app.debug = True
    app.run(debug = True)
