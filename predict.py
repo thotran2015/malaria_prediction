@@ -25,7 +25,7 @@ BS = 64
 
 
 def predict_cell(img_path):
-    cell = image.load_img('./static/'+img_path, target_size = (64,64))
+    cell = image.load_img('../static/'+img_path, target_size = (64,64))
 
     # load json and create model
     json_file = open('resnet_architecture.json', 'r')
