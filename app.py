@@ -23,7 +23,7 @@ def save_file():
    if request.method == 'POST':
       f = request.files['file']
       f.save('./static/'+secure_filename(f.filename))
-      return predict_cell('./static/'+secure_filename(f.filename))
+      return predict_cell('./static/'+secure_filename(f.filename), loaded_model)
 	
 ##@app.route('/uploader', methods = ['GET', 'POST'])
 ##def save_file():
