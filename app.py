@@ -14,7 +14,7 @@ app = Flask(__name__)
 @app.route('/index')
 @app.route('/upload')
 def upload_file():
-   return render_template('index.html', img_path = "", diagnosis = "")
+   return render_template('index.html')
 		
 )
 
