@@ -14,7 +14,9 @@ app = Flask(__name__)
 @app.route('/index')
 @app.route('/upload')
 def upload_file():
-   return render_template('index.html')
+   return render_template('index.html', img_path = "", diagnosis = "")
+		
+)
 
 	
 @app.route('/uploader', methods = ['GET', 'POST'])
@@ -28,8 +30,7 @@ def save_file():
       print('file uploaded succesfully')
       diagnosis = predict_cell(secure_filename(f.filename))
       img_path = "../static/"+ secure_filename(f.filename)
-      return render_template('result.html', img_path = img_path, diagnosis = diagnosis)
+      return render_template('index.html', img_path = img_path, diagnosis = diagnosis)
 		
 if __name__ == '__main__':
-   app.debug = True
    app.run(debug = True)

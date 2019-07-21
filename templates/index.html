@@ -7,7 +7,11 @@
         <h3>
         Please, upload a cell image. You can download cell images from NIH at https://ceb.nlm.nih.gov/repositories/malaria-datasets/.
         </h3>
-         <form action = "/uploader" method = "POST" 
+        <figure>
+        <img src="{{img_path}}" alt="cell image"></img>
+        <figcaption>{{diagnosis}}</figcaption>
+        </figure>
+         <form action = "" method = "POST" 
                  enctype = "multipart/form-data">
             <input type = "file" name = "file" />
             <input type = "submit"/>
