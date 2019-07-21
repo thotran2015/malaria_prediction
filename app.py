@@ -1,9 +1,14 @@
 from flask import Flask, render_template, request
-from flask_uploads import UploadSet, configure_uploads,IMAGES
+#from flask_uploads import UploadSet, configure_uploads,IMAGES
 from werkzeug import secure_filename
 from predict import predict_cell
 
 app = Flask(__name__)
+
+#photos = UploadSet('photos', IMAGES)
+
+#app.config['UPLOADED_PHOTOS_DEST'] = '.'
+#configure_uploads(app, photos)
 
 @app.route('/')
 @app.route('/index')
