@@ -10,16 +10,19 @@ app = Flask(__name__)
 #app.config['UPLOADED_PHOTOS_DEST'] = '.'
 #configure_uploads(app, photos)
 
+loaded_model = load_model()
+
 @app.route('/')
 @app.route('/index')
 @app.route('/upload')
 def upload_file():
-   return render_template('index.html', diagnosis = 'Cell is Unparasitized')
+   return render_template('index.html', diagnosis = 'Cell is Uninfected')
 
 @app.route('/uploader', methods = ['GET', 'POST'])
 def save_file():
    if request.method == 'POST':
       f = request.files['file']
+      f.save('../static/'+secure_filename(f.filename))
       return predict_cell(secure_filename(f.filename))
 	
 ##@app.route('/uploader', methods = ['GET', 'POST'])
