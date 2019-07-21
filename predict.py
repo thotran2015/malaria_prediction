@@ -11,6 +11,8 @@ NUM_EPOCHS = 50
 INIT_LR = 1e-1
 BS = 64
 
+#def predict_cell(img_path, loaded_model):
+#    cell = image.load_img(img_path, target_size = (64,64))
 #t = np.array([image.img_to_array(cell)/255.0])
 #if np.argmax(loaded_model.predict(t), axis = -1) == 0:
 #        print('cell is bad')

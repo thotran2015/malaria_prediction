@@ -5,6 +5,7 @@ from predict import predict_cell
 from predict import load_model
 import os
 from keras.preprocessing import image
+import numpy as np
 
 UPLOAD_FOLDER = 'static'
 
@@ -34,7 +35,8 @@ def save_file():
       os.rename(file_path, './static/output.png')
       #f.save('./static/'+secure_filename(f.filename))
       cell = image.load_img('./static/output.png', target_size = (64,64))
-      return 'hi'
+      matrix = np.array([image.img_to_array(cell)/255.0])
+      return np.argmax(loaded_model.predict(t), axis = -1)
    
 #predict_cell('./static/'+secure_filename(f.filename), loaded_model)
 
