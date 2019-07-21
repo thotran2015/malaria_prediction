@@ -32,7 +32,7 @@ def save_file():
       file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
       f.save(file_path)
       #f.save('./static/'+secure_filename(f.filename))
-      return image.load_img(file_path, target_size = (64,64))
+      return file_path
    
 #predict_cell('./static/'+secure_filename(f.filename), loaded_model)
 
