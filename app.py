@@ -3,8 +3,13 @@ from flask import Flask, render_template, request
 from werkzeug import secure_filename
 from predict import predict_cell
 from predict import load_model
+import os
+from keras.preprocessing import image
+
+UPLOAD_FOLDER = 'static'
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 #photos = UploadSet('photos', IMAGES)
 
@@ -23,8 +28,11 @@ def upload_file():
 def save_file():
    if request.method == 'POST':
       f = request.files['file']
-      f.save('./static/'+secure_filename(f.filename))
-      return 'hello world'
+      filename = secure_filename(f.filename)
+      file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+      f.save(file_path)
+      #f.save('./static/'+secure_filename(f.filename))
+      return image.load_img(file_path, target_size = (64,64))
    
 #predict_cell('./static/'+secure_filename(f.filename), loaded_model)
 
