@@ -17,7 +17,7 @@ def save_file():
       f = request.files['file']
       #print(secure_filename(f.filename))
       
-      #f.save('./static/'+secure_filename(f.filename))
+      f.save('./static/'+secure_filename(f.filename))
       print('file uploaded succesfully')
       diagnosis = predict_cell(secure_filename(f.filename))
       img_path = "../static/"+ secure_filename(f.filename)
