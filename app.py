@@ -18,7 +18,8 @@ def upload_file():
 
 @app.route('/uploader', methods = ['GET', 'POST'])
 def save_file():
-   return "Hello world!"
+   if request.method == 'POST':
+      return 'Hello world!'
 	
 ##@app.route('/uploader', methods = ['GET', 'POST'])
 ##def save_file():
