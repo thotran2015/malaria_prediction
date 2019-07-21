@@ -19,7 +19,8 @@ def upload_file():
 @app.route('/uploader', methods = ['GET', 'POST'])
 def save_file():
    if request.method == 'POST':
-      return 'Hello world!'
+      f = request.files['file']
+      return secure_filename(f.filename)
 	
 ##@app.route('/uploader', methods = ['GET', 'POST'])
 ##def save_file():
