@@ -46,9 +46,13 @@ def load_model():
     return loaded_model
     
 
-def predict_cell(img_path, loaded_model):
-    cell = image.load_img(img_path, target_size = (64,64))
-    return cell
+def predict_cell(loaded_model):
+    cell = image.load_img('./static/output.png', target_size = (64,64))
+    matrix = np.array([image.img_to_array(cell)/255.0])
+    if np.argmax(loaded_model.predict(matrix), axis = -1) == 0:
+        return "Cell is parasitized"
+    else:
+        return "Cell is uninfected"
 
 
 

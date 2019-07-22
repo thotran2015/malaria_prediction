@@ -34,16 +34,18 @@ def save_file():
       file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
       f.save(file_path)
       os.rename(file_path, './static/output.png')
-      #f.save('./static/'+secure_filename(f.filename))
-      cell = image.load_img('./static/output.png', target_size = (64,64))
-      matrix = np.array([image.img_to_array(cell)/255.0])
-      if np.argmax(loaded_model.predict(matrix), axis = -1) == 0:
-         print('cell is bad')
-         #K.clear_session()
-         return "Cell is parasitized"
-      else:
-         #K.clear_session()
-         return "Cell is uninfected"
+      diagnosis = predict_cell(loaded_model)
+      return render_template('result.html', img_path = './static/output.png', diagnosis = diagnosis)
+#f.save('./static/'+secure_filename(f.filename))
+##      cell = image.load_img('./static/output.png', target_size = (64,64))
+##      matrix = np.array([image.img_to_array(cell)/255.0])
+##      if np.argmax(loaded_model.predict(matrix), axis = -1) == 0:
+##         print('cell is bad')
+##         #K.clear_session()
+##         return "Cell is parasitized"
+##      else:
+##         #K.clear_session()
+##         return "Cell is uninfected"
    
 #predict_cell('./static/'+secure_filename(f.filename), loaded_model)
 
