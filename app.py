@@ -6,6 +6,7 @@ from predict import load_model
 import os
 from keras.preprocessing import image
 import numpy as np
+from keras import backend as K
 
 UPLOAD_FOLDER = 'static'
 
@@ -36,7 +37,13 @@ def save_file():
       #f.save('./static/'+secure_filename(f.filename))
       cell = image.load_img('./static/output.png', target_size = (64,64))
       matrix = np.array([image.img_to_array(cell)/255.0])
-      return str(matrix.shape)
+      if np.argmax(loaded_model.predict(t), axis = -1) == 0:
+         print('cell is bad')
+         K.clear_session()
+         return "Cell is parasitized"
+      else:
+         K.clear_session()
+         return "Cell is uninfected"
    
 #predict_cell('./static/'+secure_filename(f.filename), loaded_model)
 
