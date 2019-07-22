@@ -36,7 +36,7 @@ def save_file():
       #f.save('./static/'+secure_filename(f.filename))
       cell = image.load_img('./static/output.png', target_size = (64,64))
       matrix = np.array([image.img_to_array(cell)/255.0])
-      return str(loaded_model.summary())
+      return matrix
    
 #predict_cell('./static/'+secure_filename(f.filename), loaded_model)
 
