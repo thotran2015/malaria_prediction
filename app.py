@@ -35,7 +35,7 @@ def save_file():
       f.save(file_path)
       os.rename(file_path, './static/output.png')
       diagnosis = predict_cell(loaded_model)
-      return render_template('result.html', img_path = '../static/output.png', diagnosis = diagnosis)
+      return render_template('result.html', img_path = '../'+ file_path, diagnosis = diagnosis)
 #f.save('./static/'+secure_filename(f.filename))
 ##      cell = image.load_img('./static/output.png', target_size = (64,64))
 ##      matrix = np.array([image.img_to_array(cell)/255.0])
