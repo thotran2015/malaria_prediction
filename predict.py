@@ -46,8 +46,9 @@ def load_model():
     return loaded_model
     
 
-def predict_cell(loaded_model):
-    cell = image.load_img('./static/output1.png', target_size = (64,64))
+def predict_cell(loaded_model, file_path):
+    cell = image.load_img(file_path, target_size = (64,64))
+    #cell = image.load_img('./static/output.png', target_size = (64,64))
     matrix = np.array([image.img_to_array(cell)/255.0])
     if np.argmax(loaded_model.predict(matrix), axis = -1) == 0:
         return "Cell is parasitized"
